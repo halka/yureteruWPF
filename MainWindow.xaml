@@ -35,7 +35,7 @@
                 <StackPanel Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="🚨" FontSize="20" Margin="0,0,8,0" VerticalAlignment="Center"/>
                     <TextBlock FontSize="18" FontWeight="Black" VerticalAlignment="Center">
-                        <Run Text="YURE" Foreground="White"/>
+                        <Run Text="YURE" />
                         <Run Text="TERU" Foreground="{StaticResource AccentBrush}"/>
                     </TextBlock>
                 </StackPanel>
@@ -47,13 +47,8 @@
                     <Rectangle Width="1" Fill="{StaticResource SubtleBorderBrush}" Margin="5,4" Height="16"/>
 
                         <Button Content="Connect"
-                            Background="{StaticResource AccentBrush}"
-                            Foreground="{StaticResource PrimaryTextBrush}"
-                            BorderBrush="{StaticResource AccentBrush}"
-                            BorderThickness="1.5"
-                            FontWeight="Bold"
                             Command="{Binding OpenSettingsCommand}"
-                            FontSize="14" Padding="14,4" Margin="5,0,5,0">
+                            Margin="5,0,5,0">
                             <Button.Style>
                                 <Style TargetType="Button" BasedOn="{StaticResource TacticalButtonStyle}">
                                     <Setter Property="Visibility" Value="{Binding IsConnected, Converter={StaticResource InverseBoolToVisibilityConverter}}"/>
@@ -78,9 +73,6 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
-                        <Button.FontSize>14</Button.FontSize>
-                        <Button.Padding>14.4</Button.Padding>
-                        <Button.Margin>5,0,5,0</Button.Margin>
                     </Button>
 
                 </StackPanel>

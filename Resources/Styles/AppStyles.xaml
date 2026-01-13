@@ -7,10 +7,10 @@
     <converters:LpgmClassToColorConverter x:Key="LpgmClassToColorConverter"/>
 
     <!-- Colors & Brushes -->
-    <SolidColorBrush x:Key="PrimaryTextBrush" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="TextMutedBrush" Color="#A0A0A0"/>
-    <SolidColorBrush x:Key="DarkBackgroundBrush" Color="#0C0C0C"/>
-    <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#161616"/>
+    <SolidColorBrush x:Key="PrimaryTextBrush" Color="#000000"/>
+    <SolidColorBrush x:Key="TextMutedBrush" Color="#606060"/>
+    <SolidColorBrush x:Key="DarkBackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#F7F7F7"/>
     <SolidColorBrush x:Key="AccentBrush" Color="#007AFF"/>
     <SolidColorBrush x:Key="DangerBrush" Color="#FF3B30"/>
     <SolidColorBrush x:Key="DangerHoverBrush" Color="#FF5F52"/>
@@ -18,18 +18,18 @@
     <SolidColorBrush x:Key="StatusOnlineBrush" Color="#0FD976"/>
     <SolidColorBrush x:Key="StatusOfflineBrush" Color="#5A5A5A"/>
     <SolidColorBrush x:Key="AlertForegroundBrush" Color="#FF3B30"/>
-    <SolidColorBrush x:Key="AlertBackgroundBrush" Color="#2B0A0A"/>
-    <SolidColorBrush x:Key="AlertPulseOverlayBrush" Color="#40FF3B30"/>
-    <SolidColorBrush x:Key="SubtleBorderBrush" Color="#33FFFFFF"/>
-    <SolidColorBrush x:Key="HairlineBorderBrush" Color="#30FFFFFF"/>
+    <SolidColorBrush x:Key="AlertBackgroundBrush" Color="#FFEDEB"/>
+    <SolidColorBrush x:Key="AlertPulseOverlayBrush" Color="#20FF3B30"/>
+    <SolidColorBrush x:Key="SubtleBorderBrush" Color="#33000000"/>
+    <SolidColorBrush x:Key="HairlineBorderBrush" Color="#30000000"/>
     <SolidColorBrush x:Key="AxisXBrush" Color="#FF3B30"/>
     <SolidColorBrush x:Key="AxisYBrush" Color="#007AFF"/>
     <SolidColorBrush x:Key="AxisZBrush" Color="#4CD964"/>
-    <SolidColorBrush x:Key="SeparatorBrush" Color="#444444"/>
+    <SolidColorBrush x:Key="SeparatorBrush" Color="#DDDDDD"/>
 
-    <!-- JMA Intensity Colors -->
+    <!-- JMA Intensity Colors (normal scheme: 1=white, 2=light blue, 3=light yellow, 4=yellow, 5-=orange, 5+=dark orange, 6-=red, 6+=dark red, 7=purple) -->
     <SolidColorBrush x:Key="JmaCol0" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="JmaCol1" Color="#0041FF"/>
+    <SolidColorBrush x:Key="JmaCol1" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="JmaCol2" Color="#00D2FF"/>
     <SolidColorBrush x:Key="JmaCol3" Color="#FAFA00"/>
     <SolidColorBrush x:Key="JmaCol4" Color="#FFD200"/>
@@ -47,50 +47,15 @@
 
     <!-- Styles -->
     <Style x:Key="TacticalButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="#3A3A3A"/>
-        <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1.5"/>
-        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
-        <Setter Property="Padding" Value="12,6"/>
-        <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" 
-                            BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="3">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#4A4A4A"/>
-                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="#2F2F2F"/>
-            </Trigger>
-            <Trigger Property="IsKeyboardFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource PrimaryTextBrush}"/>
-            </Trigger>
-        </Style.Triggers>
+        <!-- System-default button styling (no overrides) -->
     </Style>
 
     <Style x:Key="DangerButtonStyle" TargetType="Button" BasedOn="{StaticResource TacticalButtonStyle}">
-        <Setter Property="Background" Value="{StaticResource DangerBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource DangerHoverBrush}"/>
-            </Trigger>
-        </Style.Triggers>
+        <!-- System-default button styling (no overrides) -->
     </Style>
 
     <Style x:Key="SecondaryButtonStyle" TargetType="Button" BasedOn="{StaticResource TacticalButtonStyle}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="{StaticResource SubtleBorderBrush}"/>
+        <!-- System-default -->
     </Style>
 
     <Style x:Key="IndustrialPanelStyle" TargetType="Border">
