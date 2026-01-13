@@ -248,7 +248,6 @@
                                     <Border Grid.Column="1" Background="{StaticResource AccentBrush}" CornerRadius="10" Padding="6,2" Margin="8,0,0,0" VerticalAlignment="Center">
                                         <TextBlock Text="{Binding EventHistory.Count}" Foreground="White" FontWeight="Bold" FontSize="11" VerticalAlignment="Center"/>
                                     </Border>
-                                    <Button Grid.Column="1" Content="Export" Style="{StaticResource SecondaryButtonStyle}" Command="{Binding ExportHistoryCommand}" HorizontalAlignment="Right" VerticalAlignment="Center" Height="32" Padding="6,2" Margin="8,0,0,0"/>
                                 </Grid>
                             </Expander.Header>
                             <ItemsControl ItemsSource="{Binding EventHistory}">
@@ -281,6 +280,7 @@
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
                         </Expander>
+                        <Button Grid.Column="1" Content="Export" Style="{StaticResource SecondaryButtonStyle}" Command="{Binding ExportHistoryCommand}" VerticalAlignment="Top" Height="32" Padding="6,2" Margin="8,0,0,0"/>
                     </Grid>
                 </Border>
             </StackPanel>

@@ -8,7 +8,6 @@ using YureteruWPF.Models;
 using YureteruWPF.Services;
 using YureteruWPF.Utilities;
 using LiveChartsCore;
-using LiveChartsCore.Kernel;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
@@ -274,13 +273,13 @@ public partial class MainViewModel : ObservableObject, IDisposable
             // LPGM Processing
             // 1. Filter Acceleration (Bandpass 1.6s - 7.8s)
             var filteredAcc = _lpgmFilter.Process(accData.Gal);
-            
+
             // 2. Integrate to Velocity (cm/s)
             var velocity = Math.Abs(_lpgmIntegrator.Process(filteredAcc));
 
             // 3. Update Properties (Rolling Max for Sva approximation)
             // Ideally we should keep a rolling window for Sva, but for immediate feedback:
-            CurrentSva = velocity; 
+            CurrentSva = velocity;
             CurrentLpgmClass = SeismicCalculations.CalculateLpgmClass(CurrentSva);
 
             // Add to buffer
@@ -292,7 +291,7 @@ public partial class MainViewModel : ObservableObject, IDisposable
         else if (parsed is ParsedData pData && pData.Type == DataType.Intensity)
         {
             var value = (double)(pData.Value ?? 0.0);
-            
+
             App.Current.Dispatcher.Invoke(() =>
             {
                 CurrentIntensity = value;
@@ -342,7 +341,7 @@ public partial class MainViewModel : ObservableObject, IDisposable
         // Also show a message box for critical errors
         App.Current.Dispatcher.Invoke(() =>
         {
-             System.Windows.MessageBox.Show(error, "Communication Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+            System.Windows.MessageBox.Show(error, "Communication Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
         });
     }
 }

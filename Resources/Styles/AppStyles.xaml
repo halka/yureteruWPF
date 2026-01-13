@@ -12,20 +12,14 @@
     <SolidColorBrush x:Key="DarkBackgroundBrush" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#F7F7F7"/>
     <SolidColorBrush x:Key="AccentBrush" Color="#007AFF"/>
-    <SolidColorBrush x:Key="DangerBrush" Color="#FF3B30"/>
-    <SolidColorBrush x:Key="DangerHoverBrush" Color="#FF5F52"/>
-    <SolidColorBrush x:Key="WarningBrush" Color="#FFB300"/>
     <SolidColorBrush x:Key="StatusOnlineBrush" Color="#0FD976"/>
     <SolidColorBrush x:Key="StatusOfflineBrush" Color="#5A5A5A"/>
     <SolidColorBrush x:Key="AlertForegroundBrush" Color="#FF3B30"/>
-    <SolidColorBrush x:Key="AlertBackgroundBrush" Color="#FFEDEB"/>
-    <SolidColorBrush x:Key="AlertPulseOverlayBrush" Color="#20FF3B30"/>
     <SolidColorBrush x:Key="SubtleBorderBrush" Color="#33000000"/>
     <SolidColorBrush x:Key="HairlineBorderBrush" Color="#30000000"/>
     <SolidColorBrush x:Key="AxisXBrush" Color="#FF3B30"/>
     <SolidColorBrush x:Key="AxisYBrush" Color="#007AFF"/>
     <SolidColorBrush x:Key="AxisZBrush" Color="#4CD964"/>
-    <SolidColorBrush x:Key="SeparatorBrush" Color="#DDDDDD"/>
 
     <!-- JMA Intensity Colors (normal scheme: 1=white, 2=light blue, 3=light yellow, 4=yellow, 5-=orange, 5+=dark orange, 6-=red, 6+=dark red, 7=purple) -->
     <SolidColorBrush x:Key="JmaCol0" Color="#FFFFFF"/>
@@ -89,9 +83,6 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="JmaLpgmLabelStyle" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="{StaticResource TextMutedBrush}"/>
-    </Style>
 
     <Style x:Key="JmaLpgmContrastTextStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="White"/>
@@ -99,47 +90,6 @@
             <DataTrigger Binding="{Binding CurrentLpgmClass}" Value="0">
                 <Setter Property="Foreground" Value="Black"/>
             </DataTrigger>
-        </Style.Triggers>
-    </Style>
-    <!-- ComboBox for dark theme -->
-    <Style x:Key="DarkComboBoxStyle" TargetType="ComboBox">
-        <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}"/>
-        <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource SubtleBorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Padding" Value="6,4"/>
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ItemContainerStyle">
-            <Setter.Value>
-                <Style TargetType="ComboBoxItem">
-                    <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}"/>
-                    <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}"/>
-                    <Setter Property="Padding" Value="6,4"/>
-                    <Setter Property="SnapsToDevicePixels" Value="True"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#2A2A2A"/>
-                            <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}"/>
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
-                            <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{StaticResource TextMutedBrush}"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{StaticResource TextMutedBrush}"/>
-            </Trigger>
-            <Trigger Property="IsKeyboardFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
-            </Trigger>
         </Style.Triggers>
     </Style>
 

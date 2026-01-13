@@ -64,7 +64,7 @@ public class AudioAlertService : IAudioAlertService
             using var outputDevice = new WaveOutEvent();
             outputDevice.Init(provider);
             outputDevice.Play();
-            
+
             // Wait for playback to finish
             System.Threading.Thread.Sleep((int)(duration * 1000));
         }

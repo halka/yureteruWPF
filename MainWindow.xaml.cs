@@ -17,7 +17,7 @@ public partial class MainWindow : Window
         InitializeComponent();
         _viewModel = viewModel;
         DataContext = _viewModel;
-        
+
         // Subscribe to view model events
         _viewModel.RequestSettingsWindow += OnRequestSettingsWindow;
         _viewModel.RequestSaveFile += OnRequestSaveFile;

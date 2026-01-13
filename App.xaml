@@ -13,7 +13,6 @@
             <converters:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter"/>
             <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
             <converters:BoolToStatusBrushConverter x:Key="BoolToStatusBrushConverter"/>
-            <converters:StringVisibilityConverter x:Key="StringVisibilityConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

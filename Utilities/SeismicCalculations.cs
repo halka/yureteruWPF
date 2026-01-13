@@ -42,7 +42,7 @@ public static class SeismicCalculations
         // Class 2: Strong shaking (~15-50 cm/s)
         // Class 3: Standing difficult (~50-100 cm/s)
         // Class 4: Crawling needed (> 100 cm/s)
-        
+
         if (sva >= 100) return 4;
         if (sva >= 50) return 3;
         if (sva >= 15) return 2;
@@ -62,7 +62,7 @@ public static class SeismicCalculations
             // Coefficients for a very rough estimation of the required bandpass
             // Ideally should be calculated precisely, but using approximations for this demo.
             // Bandpass ~0.15 - 0.6 Hz at 100Hz Fs
-            
+
             // Using pre-calculated dummy coefficients for a stable gentle bandpass
             // Real implementation would use biquad calculation from Fs/Fc/Q
             a0 = 0.020083365564211225;
@@ -97,10 +97,10 @@ public static class SeismicCalculations
             // Trapezoidal rule
             _accumulated += (input + _prevVal) * 0.5 * _dt;
             _prevVal = input;
-            
+
             // Simple High pass to prevent drift (Leak)
             _accumulated *= 0.999;
-            
+
             return _accumulated;
         }
     }
