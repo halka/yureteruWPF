@@ -4,6 +4,11 @@
 ## Introduction
 Use with [QUAKE.ONE/SENSE by PRIORIS](https://quake.one/sense/)
 
+## 免責事項
+生命に関わることですが、これをどうこうしてあなたがどうなっても**一切の責任を負いません。**
+
+**ラジオやテレビ、防災無線から公式情報を確認して、取るべき行動を。**
+
 ## Features
 Displays
 - Intensity
@@ -13,11 +18,6 @@ Displays
 
 ## Screenshots
 ![Screenshot](https://raw.githubusercontent.com/halka/yureteruWPF/refs/heads/main/Docs/screen1.png)
-
-## 免責事項
-生命に関わることですから、これをどうこうしてどうなっても**一切の責任は負いません**
-
-**ラジオやテレビ、防災無線から公式情報を確認して、取るべき行動を。**
 
 ## License
 MIT License. See `LICENSE`.
