@@ -84,11 +84,11 @@
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
                                 <Setter Property="Text" Value="OFF"/>
-                                <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}"/>
+                                <Setter Property="Foreground" Value="White"/>
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding IsConnected}" Value="True">
                                         <Setter Property="Text" Value="ON"/>
-                                        <Setter Property="Foreground" Value="{StaticResource StatusOnlineBrush}"/>
+                                        <Setter Property="Foreground" Value="White"/>
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -166,7 +166,7 @@
                                     <Setter Property="Text" Value="{Binding CurrentLpgmClass, StringFormat='CLASS {0}'}"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding CurrentLpgmClass}" Value="0">
-                                            <Setter Property="Text" Value="NONE"/>
+                                            <Setter Property="Text" Value="NONE" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -232,40 +232,56 @@
             <StackPanel>
                 <!-- History -->
                 <Border Style="{StaticResource IndustrialPanelStyle}" Margin="0,0,0,10">
-                    <StackPanel>
-                        <Grid Margin="0,0,0,8">
-                            <TextBlock Text="HISTORY" FontSize="14" FontWeight="Bold"/>
-                            <Button Content="📥" Style="{StaticResource SecondaryButtonStyle}" Command="{Binding ExportHistoryCommand}" HorizontalAlignment="Right" Padding="4,0"/>
-                        </Grid>
-                        <ItemsControl ItemsSource="{Binding EventHistory}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Border BorderBrush="#22ffffff" BorderThickness="0,0,0,1" Padding="0,8,4,8">
-                                        <StackPanel>
-                                            <TextBlock Text="{Binding FormattedTimestamp}" FontSize="11" Foreground="{StaticResource TextMutedBrush}" FontFamily="Cascadia Mono, Consolas, Monospaced" Margin="0,0,0,4"/>
-                                            <UniformGrid Columns="2">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock Text="INT" FontSize="10" Width="25" Foreground="{StaticResource TextMutedBrush}" FontWeight="Bold" VerticalAlignment="Center"/>
-                                                    <TextBlock Text="{Binding MaxIntensity, StringFormat=F2}" FontSize="14" FontWeight="Bold" FontFamily="Bahnschrift"/>
-                                                </StackPanel>
-                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                    <TextBlock Text="{Binding MaxGal, StringFormat=F2}" FontSize="14" FontWeight="Bold" FontFamily="Bahnschrift"/>
-                                                </StackPanel>
-                                                <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
-                                                    <TextBlock Text="LPGM" FontSize="10" Width="30" Foreground="{StaticResource TextMutedBrush}" FontWeight="Bold" VerticalAlignment="Center"/>
-                                                    <TextBlock Text="{Binding MaxLpgmClass}" FontSize="14" FontWeight="Bold" FontFamily="Bahnschrift"/>
-                                                </StackPanel>
-                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,2,0,0">
-                                                    <TextBlock Text="Sva" FontSize="10" Width="25" Foreground="{StaticResource TextMutedBrush}" FontWeight="Bold" VerticalAlignment="Center"/>
-                                                    <TextBlock Text="{Binding MaxSva, StringFormat=F1}" FontSize="14" FontWeight="Bold" FontFamily="Bahnschrift"/>
-                                                </StackPanel>
-                                            </UniformGrid>
-                                        </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Expander Grid.Column="0" IsExpanded="False" VerticalAlignment="Center">
+                            <Expander.Header>
+                                <Grid Height="32" VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="HISTORY" FontSize="14" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" VerticalAlignment="Center"/>
+                                    <Border Grid.Column="1" Background="{StaticResource AccentBrush}" CornerRadius="10" Padding="6,2" Margin="8,0,0,0" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding EventHistory.Count}" Foreground="White" FontWeight="Bold" FontSize="11" VerticalAlignment="Center"/>
                                     </Border>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </StackPanel>
+                                    <Button Grid.Column="1" Content="Export" Style="{StaticResource SecondaryButtonStyle}" Command="{Binding ExportHistoryCommand}" HorizontalAlignment="Right" VerticalAlignment="Center" Height="32" Padding="6,2" Margin="8,0,0,0"/>
+                                </Grid>
+                            </Expander.Header>
+                            <ItemsControl ItemsSource="{Binding EventHistory}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="#22ffffff" BorderThickness="0,0,0,1" Padding="0,8,4,8">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding FormattedTimestamp}" FontSize="11" Foreground="{StaticResource TextMutedBrush}" FontFamily="Cascadia Mono, Consolas, Monospaced" Margin="0,0,0,4"/>
+                                                <UniformGrid Columns="2">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="INT" FontSize="10" Width="25" Foreground="{StaticResource TextMutedBrush}" FontWeight="Bold" VerticalAlignment="Center"/>
+                                                        <TextBlock Text="{Binding MaxIntensity, StringFormat=F2}" FontSize="14" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,2,0,0">
+                                                        <TextBlock Text="Gal" FontSize="10" Width="25" Foreground="{StaticResource TextMutedBrush}" FontWeight="Bold" VerticalAlignment="Center"/>
+                                                        <TextBlock Text="{Binding MaxGal, StringFormat=F2}" FontSize="14" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                                        <TextBlock Text="LPGM" FontSize="10" Width="30" Foreground="{StaticResource TextMutedBrush}" FontWeight="Bold" VerticalAlignment="Center"/>
+                                                        <TextBlock Text="{Binding MaxLpgmClass}" FontSize="14" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,2,0,0">
+                                                        <TextBlock Text="Sva" FontSize="10" Width="25" Foreground="{StaticResource TextMutedBrush}" FontWeight="Bold" VerticalAlignment="Center"/>
+                                                        <TextBlock Text="{Binding MaxSva, StringFormat=F1}" FontSize="14" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                                                    </StackPanel>
+                                                </UniformGrid>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Expander>
+                    </Grid>
                 </Border>
             </StackPanel>
         </StackPanel>
