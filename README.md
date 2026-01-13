@@ -5,7 +5,7 @@
 Use with [QUAKE.ONE/SENSE by PRIORIS](https://quake.one/sense/)
 
 ## Screenshots
-![Screenshot](./docs/screen1.png)
+![Screenshot](https://raw.githubusercontent.com/halka/yureteruWPF/refs/heads/main/Docs/screen1.png)
 
 ## License
 MIT License. See `LICENSE`.
