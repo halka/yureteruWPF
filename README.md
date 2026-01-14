@@ -22,10 +22,7 @@ Use with [QUAKE.ONE/SENSE by PRIORIS](https://quake.one/sense/)
 - ツイ廃ディスプレイ
 
 ## Demo
-[![Demo movie]
-(https://raw.githubusercontent.com/halka/yureteruWPF/refs/heads/main/Docs/screen1.png)]
-(https://youtube.com/shorts/HBxv5mRV1yw)
-![Screenshot]()
+[![Demo movie](https://raw.githubusercontent.com/halka/yureteruWPF/refs/heads/main/Docs/screen1.png)](https://youtube.com/shorts/HBxv5mRV1yw)
 
 ## License
 MIT License. See `LICENSE`.
